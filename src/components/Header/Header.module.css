@@ -1,0 +1,105 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 47px;
+  background-color: var(--dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  /* padding: 0 16px; */
+  transition: padding 0.2s ease;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Hover zamanı sol bölmə */
+.header:has(.hamburgerButton:hover) .leftSection {
+  margin-left: 0;
+}
+
+.centerSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Hover zamanı sağ bölmə */
+.header:has(.gridButton:hover) .rightSection {
+  margin-right: 0;
+}
+
+
+
+/* Hover zamanı düymələrin genişlənməsi */
+.header:has(.hamburgerButton:hover) .hamburgerButton {
+  padding-left: 0;
+  padding-right: 20px;
+  margin-left: 0;
+}
+
+.header:has(.gridButton:hover) .gridButton {
+  padding-left: 16px;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.header:has(.logo:hover) .logo {
+  padding-left: 0;
+  padding-right: 20px;
+  margin-left: 0;
+}
+
+/* Header container hover effekti */
+.header:has(.hamburgerButton:hover) .headerContainer,
+.header:has(.gridButton:hover) .headerContainer,
+.header:has(.logo:hover) .headerContainer {
+  padding: 0;
+}
+
+/* Desktop styles */
+@media (min-width: 1055px) {
+  /* .headerContainer {
+    padding: 0 24px;
+  } */
+  
+  .leftSection {
+    gap: 24px;
+  }
+}
+
+/* Tablet and Mobile styles */
+@media (max-width: 1054px) {
+  .header {
+    height: 47px;
+  }
+  
+  /* .headerContainer {
+    padding: 0 12px;
+  } */
+  
+  .centerSection {
+    justify-content: flex-start;
+    margin-left: 16px;
+  }
+}

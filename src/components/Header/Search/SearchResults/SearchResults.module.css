@@ -1,0 +1,236 @@
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 12px;
+}
+
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+/* Error State */
+.errorContainer {
+  padding: 24px;
+  text-align: center;
+}
+
+.errorText {
+  color: var(--red);
+  font-size: 14px;
+}
+
+/* No Results State */
+.noResultsContainer {
+  padding: 24px;
+  text-align: center;
+}
+
+.noResultsText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+/* Results Header */
+.resultsHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.resultsCount {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Results List */
+.resultsList {
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.resultItem {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.resultItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.resultItem:last-child {
+  border-bottom: none;
+}
+
+/* Inline List Design */
+.resultContent {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+}
+
+.resultTitle {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.resultSeparator {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.resultDescription {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+
+
+/* Highlight */
+.highlight {
+  background: var(--green-sun);
+  color: var(--dark);
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Scrollbar Styling */
+.resultsList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resultsList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.resultsList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.resultsList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile Design - Same as Desktop */
+@media (max-width: 1054px) {
+  .searchResults {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    max-height: calc(100vh - 60px);
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .resultsList {
+    max-height: none;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .resultItem {
+    padding: 12px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .resultContent {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .resultTitle {
+    font-size: 14px;
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+
+  .resultSeparator {
+    font-size: 14px;
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  .resultDescription {
+    font-size: 14px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+  }
+}

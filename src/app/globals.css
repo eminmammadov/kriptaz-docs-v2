@@ -3,6 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Custom Color Variables */
+  --dark: #1C180D;
+  --green-sun: #C0F003;
+  --gold: #CFB97D;
+  --white: #FFFFFF;
+  --light: #F4F4F4;
+  --gray: #D4D0C9;
+  --red: #FE3D02;
+  --magenta: #FF5A86;
+  --blue: #012ACC;
+  --cyan: #56ABF8;
+  --dark-green: #004022;
+  --green: #039503;
+  --light-green: #36D136;
 }
 
 @theme inline {

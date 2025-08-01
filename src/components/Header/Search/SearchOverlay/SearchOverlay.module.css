@@ -1,0 +1,156 @@
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  right: 73px;
+  width: 0;
+  min-height: 47px;
+  background-color: var(--dark);
+  border: none;
+  z-index: 1001;
+  transition: width 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.searchOverlay.open {
+  width: 350px;
+  pointer-events: auto;
+  right: 45px;
+}
+
+.searchOverlay.open .searchContainer {
+  opacity: 1;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-width: 280px;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.2s;
+  flex-shrink: 0;
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 47px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 45px;
+  padding: 4px 40px 4px 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--white);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.1s ease;
+  min-width: 220px;
+  flex-shrink: 0;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchInput:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.closeButton {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 0;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  color: var(--white);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease, visibility 0.1s ease;
+  padding-top: 47px;
+  box-sizing: border-box;
+}
+
+.backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive davranış */
+@media (max-width: 1054px) {
+  .searchOverlay {
+    right: 56px;
+  }
+
+  .searchOverlay.open {
+    width: calc(100vw - 108px); 
+    right: 83px;
+    left: 45px;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchOverlay {
+    right: 12px;
+  }
+
+  .searchOverlay.open {
+    width: calc(100vw - 108px);
+    right: 12px;
+  }
+
+  .searchContainer {
+    min-width: calc(100vw - 138px);
+  }
+
+  .searchInput {
+    font-size: 12px;
+    padding: 4px 35px 4px 35px;
+    min-width: calc(100vw - 148px);
+  }
+}
