@@ -13,13 +13,17 @@
 }
 
 .logoImage {
-  height: 28px;
+  height: 27px;
   width: auto;
   object-fit: contain;
 }
 
 @media (max-width: 1054px) {
+  .logo {
+    padding: 0 7px;
+  }
+
   .logoImage {
-    height: 18px;
+    height: 20px;
   }
 }

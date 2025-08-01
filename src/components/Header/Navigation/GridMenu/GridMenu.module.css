@@ -5,7 +5,7 @@
   width: 47px;
   height: 47px;
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 0px solid rgba(255, 255, 255, 0.1);
   color: var(--white);
   cursor: pointer;
   border-radius: 0;
@@ -21,6 +21,7 @@
 
 .gridButton.active {
   border-color: var(--white);
+  border: 1px solid var(--white);
 }
 
 .gridIcon {
