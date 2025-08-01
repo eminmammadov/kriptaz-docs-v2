@@ -154,3 +154,14 @@
     min-width: calc(100vw - 148px);
   }
 }
+
+@media (max-width: 390px) {
+  .searchOverlay {
+    right: 12px;
+  }
+
+  .searchOverlay.open {
+    width: calc(100vw - 90px);
+    right: 12px;
+  }
+}
