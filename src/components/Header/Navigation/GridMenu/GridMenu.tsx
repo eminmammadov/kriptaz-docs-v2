@@ -1,19 +1,25 @@
 import React from 'react';
-import styles from './GridMenu.module.css';
 import { CgMenuGridO } from 'react-icons/cg';
+import { HiOutlineX } from 'react-icons/hi';
+import styles from './GridMenu.module.css';
 
 interface GridMenuProps {
   onClick?: () => void;
+  isOpen?: boolean;
 }
 
-const GridMenu: React.FC<GridMenuProps> = ({ onClick }) => {
+const GridMenu: React.FC<GridMenuProps> = ({ onClick, isOpen = false }) => {
   return (
     <button
-      className={`${styles.gridButton} gridButton`}
+      className={`${styles.gridButton} ${isOpen ? styles.active : ''} gridButton`}
       onClick={onClick}
-      aria-label="Grid görünüş"
+      aria-label={isOpen ? "Grid menyunu bağla" : "Grid menyunu aç"}
     >
-      <CgMenuGridO className={styles.gridIcon} size={22} />
+      {isOpen ? (
+        <HiOutlineX className={styles.gridIcon} size={22} />
+      ) : (
+        <CgMenuGridO className={styles.gridIcon} size={22} />
+      )}
     </button>
   );
 };

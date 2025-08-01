@@ -44,6 +44,10 @@
   flex-shrink: 0;
 }
 
+.gridMenuWrapper {
+  position: relative;
+}
+
 /* Hover zamanı sağ bölmə */
 .header:has(.gridButton:hover) .rightSection {
   margin-right: 0;

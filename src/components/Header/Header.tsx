@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { HamburgerMenu, GridMenu } from './Navigation';
+import GridDropdown from './Navigation/GridMenu/GridDropdown';
 import { SearchButton, SearchOverlay } from './Search';
 import AsideMenu from '@/components/AsideMenu';
 import styles from './Header.module.css';
@@ -14,16 +15,32 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isGridMenuOpen, setIsGridMenuOpen] = useState(false);
 
   const handleHamburgerClick = () => {
     const newState = !isMobileMenuOpen;
     setIsMobileMenuOpen(newState);
     onMenuToggle?.(newState);
+
+    // 1054px'de grid menu açıksa kapat
+    if (newState && window.innerWidth <= 1054) {
+      setIsGridMenuOpen(false);
+    }
   };
 
   const handleGridClick = () => {
-    // Grid görünüş tıklama işləyici
-    console.log('Grid görünüş tıklandı');
+    const newState = !isGridMenuOpen;
+    setIsGridMenuOpen(newState);
+
+    // 1054px'de aside menu açıksa kapat
+    if (newState && window.innerWidth <= 1054) {
+      setIsMobileMenuOpen(false);
+      onMenuToggle?.(false);
+    }
+  };
+
+  const handleGridMenuClose = () => {
+    setIsGridMenuOpen(false);
   };
 
   const handleSearchClick = () => {
@@ -54,7 +71,14 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
 
         <div className={styles.rightSection}>
           <SearchButton onClick={handleSearchClick} />
-          <GridMenu onClick={handleGridClick} />
+          <div className={styles.gridMenuWrapper}>
+            <GridMenu onClick={handleGridClick} isOpen={isGridMenuOpen} />
+            {/* Grid Dropdown */}
+            <GridDropdown
+              isOpen={isGridMenuOpen}
+              onClose={handleGridMenuClose}
+            />
+          </div>
         </div>
       </div>
     </header>
