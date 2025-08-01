@@ -5,17 +5,22 @@
   width: 47px;
   height: 47px;
   background: none;
-  border: none;
+  border: 0px solid rgba(255, 255, 255, 0.1);
   color: var(--white);
   cursor: pointer;
   border-radius: 0;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   font-size: 18px;
   padding: 0 8px;
 }
 
 .hamburgerButton:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburgerButton.active {
+  border-color: var(--white);
+  border: 1px solid var(--white);
 }
 
 .hamburgerIcon {

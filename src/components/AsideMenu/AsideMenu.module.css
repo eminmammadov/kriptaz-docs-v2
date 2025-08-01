@@ -1,0 +1,203 @@
+/* Desktop Aside Menu */
+.asideMenu {
+  background-color: var(--white);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 47px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: fixed;
+  top: 47px;
+  left: 0;
+  width: 256px;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.asideMenu.desktop {
+  transform: translateX(0);
+}
+
+.asideMenu.mobile {
+  transform: translateX(-100%);
+  z-index: 99;
+}
+
+.asideMenu.mobile.open {
+  transform: translateX(0);
+}
+
+/* Navigation */
+.navigation {
+  padding: 16px 0;
+  width: 100%;
+}
+
+/* Menu Items */
+.menuItem {
+  width: 100%;
+  position: relative;
+}
+
+.separator {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 8px 16px;
+}
+
+.menuItemContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  min-height: 40px;
+  position: relative;
+}
+
+.menuItemContent:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menuItemContent:hover .blueIndicator {
+  opacity: 1;
+}
+
+.menuItemContent.subItem {
+  padding-left: 32px;
+  min-height: 36px;
+}
+
+.menuItemInner {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.blueIndicator {
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background-color: var(--blue);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.menuItemContent.subItem .blueIndicator {
+  left: -32px;
+}
+
+/* Menu Links and Titles */
+.menuLink {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  flex: 1;
+  display: block;
+}
+
+.menuLink:hover {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.menuTitle {
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  flex: 1;
+  display: block;
+}
+
+/* Expand Button */
+.expandButton {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.expandButton:hover {
+  color: var(--dark);
+}
+
+/* Sub Menu */
+.subMenu {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Backdrop */
+.backdrop {
+  position: fixed;
+  top: 47px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 47px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  opacity: 1;
+}
+
+/* Scrollbar Styling */
+.asideMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.asideMenu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.asideMenu::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.asideMenu::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1054px) {
+  .asideMenu.desktop {
+    display: none;
+  }
+  
+  .asideMenu.mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 1055px) {
+  .asideMenu.mobile {
+    display: none;
+  }
+  
+  .asideMenu.desktop {
+    display: block;
+  }
+  
+  .backdrop {
+    display: none;
+  }
+}
