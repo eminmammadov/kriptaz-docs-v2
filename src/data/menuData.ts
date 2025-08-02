@@ -44,7 +44,7 @@ export const menuData: MenuItem[] = [
       }
     ]
   },
-  
+
   {
     id: 'token-ekonomiyasi',
     title: 'Token Ekonomiyası',
@@ -55,17 +55,28 @@ export const menuData: MenuItem[] = [
     id: 'yol-xeritemiz',
     title: 'Yol Xəritəmiz',
     href: '/komek/yol-xeritemiz',
-  },
+  },  
+
   {
-    id: 'deyisiklikler-jurnali',
-    title: 'Dəyişikliklər Jurnalı',
-    href: '/komek/deyisiklikler-jurnali'
+    id: 'komek',
+    title: 'Kömək',
+    isExpandable: true,
+    isExpanded: false,
+    children: [
+      {
+        id: 'deyisiklikler-jurnali',
+        title: 'Dəyişikliklər Jurnalı',
+        href: '/komek/deyisiklikler-jurnali'
+      },
+      {
+        id: 'suallar-cavablar',
+        title: 'Suallar və cavablar',
+        href: '/komek/suallar-cavablar'
+      },
+    ]
   },
-  {
-    id: 'suallar-cavablar',
-    title: 'Suallar və cavablar',
-    href: '/komek/suallar-cavablar'
-  },
+  
+  
   
   {
     id: '2x-grid',
