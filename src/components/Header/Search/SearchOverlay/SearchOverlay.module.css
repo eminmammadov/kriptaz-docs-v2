@@ -33,7 +33,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  min-width: 280px;
+  min-width: 220px;
   opacity: 0;
   transition: opacity 0.01s ease 0.01s;
   flex-shrink: 0;
@@ -64,8 +64,11 @@
 
 .searchInput:focus {
   background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--white);
+}
+
+.searchInput:active {
+  border: 1px solid var(--white);
 }
 
 .searchIcon {
@@ -116,13 +119,14 @@
 /* Responsive davranış */
 @media (max-width: 1054px) {
   .searchOverlay {
-    right: 45px;
+    right: 83px;
+    left: 48px;
   }
 
   .searchOverlay.open {
     min-width: calc(100vw - 107px); 
-    right: 83px !important;
-    left: 45px;
+    right: 83px;
+    left: 48px;
   }
 
   .searchContainer {
@@ -130,13 +134,13 @@
   }
 
   .searchInput {
-    min-width: 100%;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .searchOverlay {
-    right: 12px !important;
+    right: 12px;
   }
 
   .searchOverlay.open {
@@ -161,7 +165,7 @@
   }
 
   .searchOverlay.open {
-    min-width: calc(100vw - 107px);
+    width: calc(100vw - 90px);
     right: 12px;
   }
 }

@@ -165,10 +165,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Backdrop */}
-      <div
-        className={`${styles.backdrop} ${isOpen ? styles.open : ''}`}
-        onClick={onClose}
-      />
+      
 
       {/* Search Overlay */}
       <div className={`${styles.searchOverlay} ${isOpen ? styles.open : ''}`}>
