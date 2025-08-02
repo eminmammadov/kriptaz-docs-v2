@@ -1,5 +1,123 @@
 @import "tailwindcss";
 
+/* Kriptaz Font Family */
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Thin-100.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Thin-100.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Thin-It-100.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Thin-It-100.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-ExtraLight-200.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-ExtraLight-200.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-ExtraLight-It-200.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-ExtraLight-It-200.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Light-300.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Light-300.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Light-It-300.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Light-It-300.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Regular-400.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Regular-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Medium-500.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Medium-500.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Medium-It-500.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Medium-It-500.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-DemiBold-600.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-DemiBold-600.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-DemiBold-It-600.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-DemiBold-It-600.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Bold-700.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Bold-700.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kriptaz';
+  src: url('/fonts/kriptaz/Kriptaz-Bold-It-700.woff2') format('woff2'),
+       url('/fonts/kriptaz/Kriptaz-Bold-It-700.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,6 +136,10 @@
   --dark-green: #004022;
   --green: #039503;
   --light-green: #36D136;
+
+  /* Font Families */
+  --font-kriptaz: 'Kriptaz', Arial, Helvetica, sans-serif;
+  --font-fallback: Arial, Helvetica, sans-serif;
 }
 
 @theme inline {
@@ -37,7 +159,7 @@
 body {
   background: var(--light);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-kriptaz);
 }
 
 /* App Container Layout */
