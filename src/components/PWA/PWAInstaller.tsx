@@ -115,22 +115,10 @@ const PWAInstaller: React.FC = () => {
       e.currentTarget.style.transform = 'translateY(0)'
     }}
     >
-      <div style={{
-        width: '24px',
-        height: '24px',
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        borderRadius: '4px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '16px'
-      }}>
-        📱
-      </div>
       <div>
         <div style={{ fontWeight: 500 }}>Tətbiqi quraşdır</div>
         <div style={{ fontSize: '12px', opacity: 0.9 }}>
-          Sürət üçün ekrana əlavə et
+          Ana ekrana əlavə et!
         </div>
       </div>
       <button
