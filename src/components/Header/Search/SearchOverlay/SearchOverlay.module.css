@@ -7,7 +7,7 @@
   background-color: var(--dark);
   border: none;
   z-index: 1001;
-  transition: width 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -35,7 +35,7 @@
   align-items: center;
   min-width: 280px;
   opacity: 0;
-  transition: opacity 0.2s ease 0.2s;
+  transition: opacity 0.01s ease 0.01s;
   flex-shrink: 0;
   background: var(--dark);
   border: 1px solid rgba(255, 255, 255, 0.1);
