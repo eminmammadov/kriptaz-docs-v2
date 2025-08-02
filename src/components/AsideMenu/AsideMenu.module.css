@@ -202,9 +202,20 @@
   .asideMenu.desktop {
     display: none;
   }
-  
+
   .asideMenu.mobile {
     display: block;
+    max-height: calc(100vh - 47px);
+    height: calc(100vh - 47px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .navigation {
+    padding: 16px 0;
+    min-height: calc(100vh - 47px - 32px);
+    display: flex;
+    flex-direction: column;
   }
 }
 
