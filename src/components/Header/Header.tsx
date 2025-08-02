@@ -45,6 +45,10 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
 
   const handleSearchClick = () => {
     setIsSearchOpen(true);
+    // Diğer menuları kapat
+    setIsMobileMenuOpen(false);
+    setIsGridMenuOpen(false);
+    onMenuToggle?.(false);
   };
 
   const handleSearchClose = () => {

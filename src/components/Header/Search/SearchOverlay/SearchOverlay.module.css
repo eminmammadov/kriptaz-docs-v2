@@ -1,7 +1,7 @@
 .searchOverlay {
   position: fixed;
   top: 0;
-  right: 73px;
+  right: 45px;
   width: 0;
   min-height: 47px;
   background-color: var(--dark);
@@ -116,13 +116,13 @@
 /* Responsive davranış */
 @media (max-width: 1054px) {
   .searchOverlay {
-    right: 56px;
+    right: 47px;
   }
 
   .searchOverlay.open {
-    width: calc(100vw - 108px); 
+    min-width: calc(100vw - 93px); 
     right: 83px;
-    left: 45px;
+    left: 46px;
   }
 
   .searchContainer {
