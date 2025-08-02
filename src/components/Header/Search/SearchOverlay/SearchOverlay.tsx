@@ -97,10 +97,43 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
     }
   }, []);
 
-  // Handle input change
+  // Cleanup pending searches on unmount
+  useEffect(() => {
+    return () => {
+      searchService.cancelAllSearches();
+    };
+  }, []);
+
+  // Handle input change with debounced search
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
+
+    // Perform debounced search for real-time results
+    if (newQuery.trim().length >= 3) {
+      searchService.debouncedSearch(
+        newQuery,
+        (results, error) => {
+          if (error) {
+            setError(error);
+            setSearchResults(null);
+          } else {
+            setSearchResults(results);
+            setError(null);
+          }
+          setIsLoading(false);
+        },
+        300 // 300ms delay
+      );
+      setIsLoading(true);
+    } else {
+      // Clear results if query is too short
+      setSearchResults(null);
+      setError(null);
+      setIsLoading(false);
+      // Cancel any pending searches
+      searchService.cancelAllSearches();
+    }
   };
 
   // Handle form submission (Enter key)
@@ -147,7 +180,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
             value={query}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            placeholder="Sənədlərdə axtarış edin..."
+            placeholder="Sənədləri axtarın"
             className={styles.searchInput}
             disabled={isLoading}
           />

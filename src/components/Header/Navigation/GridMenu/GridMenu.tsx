@@ -6,14 +6,23 @@ import styles from './GridMenu.module.css';
 interface GridMenuProps {
   onClick?: () => void;
   isOpen?: boolean;
+  'aria-label'?: string;
 }
 
-const GridMenu: React.FC<GridMenuProps> = ({ onClick, isOpen = false }) => {
+const GridMenu: React.FC<GridMenuProps> = ({
+  onClick,
+  isOpen = false,
+  'aria-label': ariaLabel
+}) => {
   return (
     <button
       className={`${styles.gridButton} ${isOpen ? styles.active : ''} gridButton`}
       onClick={onClick}
-      aria-label={isOpen ? "Grid menyunu bağla" : "Grid menyunu aç"}
+      aria-label={ariaLabel || (isOpen ? "Grid menyunu bağla" : "Grid menyunu aç")}
+      aria-expanded={isOpen}
+      aria-controls="grid-dropdown"
+      aria-haspopup="menu"
+      type="button"
     >
       {isOpen ? (
         <HiOutlineX className={styles.gridIcon} size={22} />

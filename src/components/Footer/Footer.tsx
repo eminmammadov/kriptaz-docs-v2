@@ -48,23 +48,28 @@ const FOOTER_CONTENT = {
 
 const Footer: React.FC = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} role="contentinfo" aria-label="Səhifə altlığı">
       {/* Main Footer Content */}
       <div className={styles.content}>
         <div className={styles.container}>
           {/* Links Grid */}
-          <div className={styles.linksGrid}>
+          <nav className={styles.linksGrid} role="navigation" aria-label="Footer naviqasiyası">
             {/* Column 1 - Legal Links */}
-            <div className={styles.linkColumn}>
+            <div className={styles.linkColumn} role="group" aria-label="Hüquqi linklər">
               {FOOTER_CONTENT.links.legal.map((link, index) => (
-                <Link key={index} href={link.href} className={styles.footerLink}>
+                <Link
+                  key={index}
+                  href={link.href}
+                  className={styles.footerLink}
+                  aria-label={`${link.label} səhifəsinə keç`}
+                >
                   {link.label}
                 </Link>
               ))}
             </div>
 
             {/* Column 2 - Social Links */}
-            <div className={styles.linkColumn}>
+            <div className={styles.linkColumn} role="group" aria-label="Sosial media linklər">
               {FOOTER_CONTENT.links.social.map((link, index) => (
                 <Link
                   key={index}
@@ -72,6 +77,7 @@ const Footer: React.FC = () => {
                   target={link.target}
                   rel="noopener noreferrer"
                   className={styles.footerLink}
+                  aria-label={`${link.label} səhifəsini yeni pəncərədə aç`}
                 >
                   {link.label}
                 </Link>
@@ -102,7 +108,7 @@ const Footer: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </nav>
 
           {/* Logo */}
           <div className={styles.logoSection}>
@@ -113,6 +119,9 @@ const Footer: React.FC = () => {
                 width={FOOTER_CONTENT.logo.width}
                 height={FOOTER_CONTENT.logo.height}
                 className={styles.logo}
+                sizes="(max-width: 768px) 120px, 180px"
+                quality={95}
+                loading="lazy"
               />
             </Link>
           </div>

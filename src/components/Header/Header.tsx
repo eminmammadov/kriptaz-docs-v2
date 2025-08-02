@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import Logo from './Logo';
-import { HamburgerMenu, GridMenu } from './Navigation';
+import { HamburgerMenu, GridMenu, AsideMenu } from './Navigation';
 import GridDropdown from './Navigation/GridMenu/GridDropdown';
 import { SearchButton, SearchOverlay } from './Search';
-import AsideMenu from '@/components/AsideMenu';
 import styles from './Header.module.css';
 
 interface HeaderProps {
@@ -62,27 +61,38 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
 
   return (
     <>
-    <header className={styles.header}>
+    <header className={styles.header} role="banner">
       <div className={styles.headerContainer}>
         <div className={styles.leftSection}>
-          <HamburgerMenu onClick={handleHamburgerClick} isOpen={isMobileMenuOpen} />
+          <HamburgerMenu
+            onClick={handleHamburgerClick}
+            isOpen={isMobileMenuOpen}
+            aria-label={isMobileMenuOpen ? "Naviqasiya menyusunu bağla" : "Naviqasiya menyusunu aç"}
+          />
           <Logo />
         </div>
 
-        <div className={styles.centerSection}>
+        <div className={styles.centerSection} role="search" aria-label="Axtarış bölməsi">
           {/* Search komponenti artıq istifadə olunmur */}
         </div>
 
         <div className={styles.rightSection}>
-          <SearchButton onClick={handleSearchClick} />
-          <div className={styles.gridMenuWrapper}>
-            <GridMenu onClick={handleGridClick} isOpen={isGridMenuOpen} />
+          <SearchButton
+            onClick={handleSearchClick}
+            aria-label="Sənədlərdə axtarış et"
+          />
+          <nav className={styles.gridMenuWrapper} role="navigation" aria-label="Əlavə naviqasiya">
+            <GridMenu
+              onClick={handleGridClick}
+              isOpen={isGridMenuOpen}
+              aria-label={isGridMenuOpen ? "Grid menyusunu bağla" : "Grid menyusunu aç"}
+            />
             {/* Grid Dropdown */}
             <GridDropdown
               isOpen={isGridMenuOpen}
               onClose={handleGridMenuClose}
             />
-          </div>
+          </nav>
         </div>
       </div>
     </header>

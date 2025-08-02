@@ -9,11 +9,13 @@ const Logo: React.FC = () => {
       <Link href="/">
         <Image
           src="/logos/docs-logo-white.svg"
-          alt="Sənədlər Loqosu"
+          alt="Kriptaz Blockchain Sənədləri"
           width={120}
           height={20}
           className={styles.logoImage}
           priority
+          sizes="(max-width: 1054px) 100px, 120px"
+          quality={95}
         />
       </Link>
     </div>

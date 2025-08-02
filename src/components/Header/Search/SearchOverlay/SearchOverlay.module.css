@@ -1,7 +1,7 @@
 .searchOverlay {
   position: fixed;
   top: 0;
-  right: 45px;
+  right: 47px;
   width: 0;
   min-height: 47px;
   background-color: var(--dark);
@@ -21,7 +21,7 @@
 .searchOverlay.open {
   width: 350px;
   pointer-events: auto;
-  right: 45px;
+  right: 47px;
 }
 
 .searchOverlay.open .searchContainer {
@@ -98,7 +98,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  /* width: 100%; */
   height: 100vh;
   z-index: 1000;
   opacity: 0;
@@ -116,13 +116,13 @@
 /* Responsive davranış */
 @media (max-width: 1054px) {
   .searchOverlay {
-    right: 47px;
+    right: 45px;
   }
 
   .searchOverlay.open {
-    min-width: calc(100vw - 93px); 
-    right: 83px;
-    left: 46px;
+    min-width: calc(100vw - 107px); 
+    right: 83px !important;
+    left: 45px;
   }
 
   .searchContainer {
@@ -130,13 +130,13 @@
   }
 
   .searchInput {
-    width: 100%;
+    min-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .searchOverlay {
-    right: 12px;
+    right: 12px !important;
   }
 
   .searchOverlay.open {
@@ -161,7 +161,7 @@
   }
 
   .searchOverlay.open {
-    width: calc(100vw - 90px);
+    min-width: calc(100vw - 107px);
     right: 12px;
   }
 }

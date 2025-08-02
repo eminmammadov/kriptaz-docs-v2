@@ -5,14 +5,22 @@ import styles from './HamburgerMenu.module.css';
 interface HamburgerMenuProps {
   onClick?: () => void;
   isOpen?: boolean;
+  'aria-label'?: string;
 }
 
-const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ onClick, isOpen = false }) => {
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
+  onClick,
+  isOpen = false,
+  'aria-label': ariaLabel
+}) => {
   return (
     <button
       className={`${styles.hamburgerButton} ${isOpen ? styles.active : ''} hamburgerButton`}
       onClick={onClick}
-      aria-label={isOpen ? "Menyunu bağla" : "Menyunu aç"}
+      aria-label={ariaLabel || (isOpen ? "Menyunu bağla" : "Menyunu aç")}
+      aria-expanded={isOpen}
+      aria-controls="aside-menu"
+      type="button"
     >
       {isOpen ? (
         <HiOutlineX className={styles.hamburgerIcon} size={22} />

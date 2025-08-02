@@ -162,6 +162,60 @@ body {
   font-family: var(--font-kriptaz);
 }
 
+/* Accessibility & Keyboard Navigation */
+*:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--blue);
+  color: var(--white);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 9999;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+    --blue: #0066ff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* App Container Layout */
 .app-container {
   display: flex;
@@ -175,10 +229,25 @@ body {
   padding-top: 47px;
   flex: 1;
   transition: margin-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: calc(100vh - 47px);
 }
 
+/* Mobile-first responsive design */
 @media (max-width: 1054px) {
   .main-content {
     margin-left: 0;
+    padding: 47px 16px 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 47px 12px 0 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 47px 8px 0 8px;
   }
 }
