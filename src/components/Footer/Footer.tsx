@@ -9,8 +9,8 @@ import styles from './Footer.module.css';
 const FOOTER_CONTENT = {
   links: {
     legal: [
-      { href: '/privacy', label: 'Məxfilik siyasəti' },
-      { href: '/terms', label: 'İstifadə şərtləri' },
+      { href: 'https://www.kriptaz.com/privacy', label: 'Məxfilik siyasəti' },
+      { href: 'https://www.kriptaz.com/terms', label: 'İstifadə şərtləri' },
       { href: 'https://www.kriptaz.com', label: 'Kriptaz.com' }
     ],
     social: [

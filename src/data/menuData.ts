@@ -10,59 +10,61 @@ export interface MenuItem {
 
 export const menuData: MenuItem[] = [
   {
-    id: 'philosophy',
-    title: 'Philosophy',
+    id: 'giris',
+    title: 'Giriş',
     isExpandable: true,
     isExpanded: false,
     children: [
       {
-        id: 'point-of-view',
-        title: 'Point of view',
-        href: '/philosophy/point-of-view'
+        id: 'missiyamiz',
+        title: 'Missiyamız',
+        href: '/giris/missiyamiz'
       },
       {
-        id: 'principles',
-        title: 'Principles',
-        href: '/philosophy/principles'
+        id: 'vizyonumuz',
+        title: 'Vizyonumuz',
+        href: '/giris/vizyonumuz'
+      },
+      {
+        id: 'hekayemiz',
+        title: 'Hekayəmiz',
+        href: '/giris/hekayemiz'
+      }
+      ,
+      {
+        id: 'xidmetlerimiz',
+        title: 'Xidmətlərimiz',
+        href: '/giris/xidmetlerimiz'
+      }
+      ,
+      {
+        id: 'layihelerimiz',
+        title: 'Layihələrimiz',
+        href: '/giris/layihelerimiz'
       }
     ]
   },
   
   {
-    id: 'gallery',
-    title: 'Gallery',
-    href: '/gallery',
+    id: 'token-ekonomiyasi',
+    title: 'Token Ekonomiyası',
+    href: '/komek/token-ekonomiyasi',
     hasSeparator: true
   },
-  
   {
-    id: 'typography',
-    title: 'Typography',
-    isExpandable: true,
-    isExpanded: false,
-    children: [
-      {
-        id: 'typeface',
-        title: 'Typeface',
-        href: '/typography/typeface'
-      },
-      {
-        id: 'type-basics',
-        title: 'Type basics',
-        href: '/typography/type-basics'
-      },
-      {
-        id: 'type-scale',
-        title: 'Type scale',
-        href: '/typography/type-scale'
-      }
-    ]
+    id: 'yol-xeritemiz',
+    title: 'Yol Xəritəmiz',
+    href: '/komek/yol-xeritemiz',
   },
-  
   {
-    id: 'color',
-    title: 'Color',
-    href: '/color'
+    id: 'deyisiklikler-jurnali',
+    title: 'Dəyişikliklər Jurnalı',
+    href: '/komek/deyisiklikler-jurnali'
+  },
+  {
+    id: 'suallar-cavablar',
+    title: 'Suallar və cavablar',
+    href: '/komek/suallar-cavablar'
   },
   
   {

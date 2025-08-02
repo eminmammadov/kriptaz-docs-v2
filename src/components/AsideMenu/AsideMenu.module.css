@@ -68,14 +68,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding: 6px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   border: none;
   background: none;
   width: 100%;
   text-align: left;
-  min-height: 40px;
+  min-height: 36px;
   position: relative;
 }
 
@@ -89,7 +89,7 @@
 
 .menuItemContent.subItem {
   padding-left: 32px;
-  min-height: 36px;
+  min-height: 32px;
 }
 
 .menuItemInner {
@@ -216,6 +216,27 @@
     min-height: calc(100vh - 47px - 32px);
     display: flex;
     flex-direction: column;
+  }
+}
+
+/* Mobile Small Screens */
+@media (max-width: 480px) {
+  .asideMenu.mobile {
+    max-height: calc(100vh - 47px);
+    height: calc(100vh - 47px);
+  }
+
+  .navigation {
+    padding: 16px 0 80px 0;
+    min-height: calc(100vh - 47px - 96px);
+  }
+}
+
+/* Mobile Extra Small Screens */
+@media (max-width: 390px) {
+  .navigation {
+    padding: 16px 0 100px 0;
+    min-height: calc(100vh - 47px - 116px);
   }
 }
 

@@ -56,14 +56,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding: 6px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   border: none;
   background: none;
   width: 100%;
   text-align: left;
-  min-height: 40px;
+  min-height: 36px;
   position: relative;
 }
 
@@ -187,5 +187,22 @@
     height: calc(100vh - 47px);
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  .navigation {
+    padding: 16px 0 80px 0;
+    min-height: calc(100vh - 47px - 96px);
+  }
+}
+
+/* Mobile Extra Small Screens */
+@media (max-width: 390px) {
+  .dropdown {
+    width: 260px;
+  }
+
+  .navigation {
+    padding: 16px 0 100px 0;
+    min-height: calc(100vh - 47px - 116px);
   }
 }
