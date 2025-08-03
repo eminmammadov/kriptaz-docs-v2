@@ -10,10 +10,10 @@ const CONTENT = {
   backgroundText: '404',
   continueTitle: 'Kəşfə davam edin',
   links: [
-    { title: 'Kriptaz Ana Səhifə', icon: HiHome },
-    { title: 'Məhsullarımız', icon: HiCube },
-    { title: 'Karyera', icon: HiBriefcase },
-    { title: 'Əlaqə', icon: HiPhone }
+    { title: 'Ana Səhifə', icon: HiHome, href: '/' },
+    { title: 'Məhsullarımız', icon: HiCube, href: '#' },
+    { title: 'Karyera', icon: HiBriefcase, href: '#' },
+    { title: 'Əlaqə', icon: HiPhone, href: '#' }
   ]
 } as const
 
@@ -47,7 +47,13 @@ export default function NotFound() {
           {CONTENT.links.map((link, index) => {
             const IconComponent = link.icon;
             return (
-              <a key={index} href="#" className={styles.linkCard}>
+              <a
+                key={index}
+                href={link.href}
+                className={styles.linkCard}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className={styles.linkIcon}>
                   <IconComponent />
                 </span>
