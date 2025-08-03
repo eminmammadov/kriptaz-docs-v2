@@ -23,14 +23,14 @@ const FOOTER_CONTENT = {
     text: 'Bizə',
     brandLink: {
       href: 'mailto:info@kriptaz.com',
-      label: '#kriptaz başlığı ilə'
+      label: '#kriptaz'
     },
-    brandNote: '(daxili Kriptaz istifadəçiləri üçün) yazın və ya',
+    brandNote: '(başlığı ilə) yazın və ya',
     inquiryLink: {
       href: 'mailto:info@kriptaz.com',
-      label: 'sorğu formu'
+      label: 'e-poçt'
     },
-    inquiryNote: 'göndərin.'
+    inquiryNote: ' ilə sorğu formu göndərin.'
   },
   update: {
     lastUpdated: 'Son yenilənmə 30 İyul 2025',

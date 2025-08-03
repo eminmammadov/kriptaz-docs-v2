@@ -50,7 +50,7 @@
   border: none;
   border-radius: 0;
   color: var(--white);
-  font-size: 13px;
+  font-size: 16px;
   font-family: inherit;
   outline: none;
   transition: all 0.1s ease;
@@ -128,38 +128,16 @@
     right: 83px;
     left: 48px;
   }
-
-  .searchContainer {
-    width: 100%;
-  }
-
-  .searchInput {
-    width: 100%;
-  }
 }
 
 @media (max-width: 480px) {
   .searchOverlay {
     right: 12px;
-    
   }
 
   .searchOverlay.open {
-    width: calc(100vw - 107px);
+    max-width: calc(100vw - 107px);
     right: 12px;
-    
-  }
-
-  .searchContainer {
-    /* min-width: calc(100vw - 138px); */
-    width: 100%;
-  }
-
-  .searchInput {
-    font-size: 16px;
-    /* padding: 4px 35px 4px 40px;
-    min-width: calc(100vw - 148px); */
-    width: 100%;
   }
 }
 
