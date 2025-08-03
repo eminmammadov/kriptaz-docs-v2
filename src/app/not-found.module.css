@@ -1,0 +1,214 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* padding: 80px 75px 80px 350px; */
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  color: var(--white);
+  text-align: left;
+  margin-left: 425px;
+}
+
+.backgroundText {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  bottom: -15;
+  transform: translateY(-50%);
+  font-size: clamp(180px, 20vw, 320px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.08);
+  line-height: 0.9;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  font-family: var(--font-kriptaz);
+  letter-spacing: -0.02em;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0 0 24px 0;
+  color: var(--white);
+  line-height: 1.25;
+  font-family: var(--font-kriptaz);
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 40px 0;
+  font-weight: 400;
+  max-width: 420px;
+  font-family: var(--font-kriptaz);
+}
+
+/* Continue Exploring Section */
+.continueSection {
+  background: var(--light);
+  padding: 64px 75px 80px 424px;
+  min-height: 200px;
+  /* margin-left: 425px; */
+}
+
+.continueTitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--dark);
+  margin: 0 0 48px 0;
+  font-family: var(--font-kriptaz);
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 800px;
+}
+
+.linkCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-family: var(--font-kriptaz);
+  transition: text-decoration 0.2s ease;
+}
+
+.linkCard:hover {
+  text-decoration: underline;
+}
+
+.linkIcon {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.linkTitle {
+  font-weight: 400;
+}
+
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 1054px) {
+  .container {
+    
+    padding: 64px 16px 80px 16px;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .backgroundText {
+    font-size: clamp(160px, 18vw, 280px);
+    right: 5% !important;
+  }
+
+  .continueSection {
+    padding: 48px 16px 64px 16px;
+  }
+
+  .linksGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    min-height: 300px;
+  }
+
+  .content {
+    max-width: 100%;
+    padding: 0; /* İçerik için minimal padding */
+  }
+
+  .title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-bottom: 32px;
+    max-width: 100%;
+  }
+
+  .backgroundText {
+    font-size: clamp(120px, 25vw, 200px);
+    right: -10%;
+    opacity: 0.6;
+  }
+
+  .continueSection {
+    padding: 40px 0 48px 0; /* Tüm padding sıfır, sadece top/bottom */
+  }
+
+  .continueTitle {
+    font-size: 24px;
+    margin-bottom: 32px;
+    padding: 0 16px; /* Başlık için minimal padding */
+  }
+
+  .linksGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 16px; /* Grid için minimal padding */
+  }
+}
+
+
+
+.backgroundText {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.title {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.description {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}

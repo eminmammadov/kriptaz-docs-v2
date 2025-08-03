@@ -225,15 +225,13 @@ body {
 
 /* Main Content Layout */
 .main-content {
-  margin-left: 256px;
-  padding-top: 47px;
   flex: 1;
   transition: margin-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   min-height: calc(100vh - 47px);
 }
 
 /* Mobile-first responsive design */
-@media (max-width: 1054px) {
+/* @media (max-width: 1054px) {
   .main-content {
     margin-left: 0;
     padding: 47px 16px 0 16px;
@@ -250,4 +248,4 @@ body {
   .main-content {
     padding: 47px 8px 0 8px;
   }
-}
+} */
