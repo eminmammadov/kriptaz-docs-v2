@@ -141,31 +141,26 @@
 @media (max-width: 480px) {
   .searchOverlay {
     right: 12px;
+    
   }
 
   .searchOverlay.open {
     width: calc(100vw - 107px);
     right: 12px;
+    
   }
 
   .searchContainer {
-    min-width: calc(100vw - 138px);
+    /* min-width: calc(100vw - 138px); */
+    width: 100%;
   }
 
   .searchInput {
     font-size: 16px;
-    padding: 4px 35px 4px 40px;
-    min-width: calc(100vw - 148px);
+    /* padding: 4px 35px 4px 40px;
+    min-width: calc(100vw - 148px); */
+    width: 100%;
   }
 }
 
-@media (max-width: 390px) {
-  .searchOverlay {
-    right: 12px;
-  }
 
-  .searchOverlay.open {
-    width: calc(100vw - 90px);
-    right: 12px;
-  }
-}
