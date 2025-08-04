@@ -1,0 +1,303 @@
+/* Hero Container */
+.hero {
+  position: relative;
+  width: calc(100% - 256px); /* Aside menu genişliği çıkarıldı */
+  height: 480px; /* 20% artırıldı (400px → 480px) */
+  overflow: hidden;
+  background: var(--dark);
+  margin-left: 256px; /* Aside menu genişliği kadar margin */
+}
+
+/* Background Video */
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Video Overlay */
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Hero Grid */
+.heroGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  z-index: 3;
+}
+
+/* Grid Items */
+.gridItem {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.gridItem:last-child {
+  border-right: none;
+}
+
+.gridItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Link gridleri için hover efekti */
+.gridItem[data-grid="gallery"]:hover,
+.gridItem[data-grid="resources"]:hover {
+  background: var(--white);
+}
+
+.gridItem[data-grid="gallery"]:hover .gridTitle,
+.gridItem[data-grid="resources"]:hover .gridTitle {
+  color: var(--dark);
+}
+
+.gridItem[data-grid="gallery"]:hover .gridIcon,
+.gridItem[data-grid="resources"]:hover .gridIcon {
+  color: var(--dark);
+}
+
+/* Grid Content */
+.gridContent {
+  width: 100%;
+  height: 100%;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid Header */
+.gridHeader {
+  display: flex;
+  align-items: flex-end; /* Alt hizalama */
+  justify-content: space-between;
+  margin-bottom: 0; /* Margin kaldırıldı */
+  height: 100%;
+  width: 100%;
+}
+
+/* Video Control Grid için özel stil - Desktop */
+.gridItem[data-grid="philosophy"] .gridHeader {
+  justify-content: flex-end; /* Sağ alt köşe */
+  align-items: flex-end;
+}
+
+/* Link gridleri için özel stil */
+.gridItem[data-grid="gallery"] .gridHeader,
+.gridItem[data-grid="resources"] .gridHeader {
+  position: relative;
+  align-items: flex-start; /* Başlık yukarıda */
+  justify-content: flex-start; /* Başlık solda */
+}
+
+/* Link gridlerinde icon'u sağ alt köşeye yerleştir */
+.gridItem[data-grid="gallery"] .gridIcon,
+.gridItem[data-grid="resources"] .gridIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.gridTitle {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-kriptaz);
+}
+
+/* Video Control Button */
+.videoControl {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.videoControl:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Grid Icon */
+.gridIcon {
+  font-size: 24px;
+  color: var(--white);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  align-self: flex-end; /* Sağ-alta hizala */
+}
+
+/* Grid Link */
+.gridLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* Grid Body */
+.gridBody {
+  margin-top: 16px;
+}
+
+.gridDescription {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-kriptaz);
+}
+
+.gridAuthor {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-style: italic;
+  font-family: var(--font-kriptaz);
+}
+
+/* Responsive Design */
+
+/* Desktop Large */
+@media (min-width: 1055px) {
+  .hero {
+    width: calc(100% - 256px); /* Aside menu genişliği çıkarıldı */
+    height: 480px; /* 20% artırıldı (400px → 480px) */
+    margin-left: 256px; /* Aside menu genişliği */
+  }
+
+  .heroGrid {
+    grid-template-columns: repeat(4, 1fr); /* 4 eşit grid */
+    width: 100%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1054px) {
+  .hero {
+    width: 100%; /* Tablet'te full width */
+    height: 480px; /* Desktop ile aynı yükseklik (20% artırılmış) */
+    margin-left: 0; /* Tablet'te aside menu gizli */
+  }
+
+  .heroGrid {
+    grid-template-columns: repeat(3, 1fr); /* 4 grid → 3 grid */
+  }
+
+  .gridItem[data-grid="empty"] {
+    display: none; /* 4. grid gizle */
+  }
+
+  .gridItem {
+    padding: 24px;
+  }
+
+  .gridTitle {
+    font-size: 20px;
+  }
+
+  .gridDescription {
+    font-size: 14px;
+  }
+
+  /* Tablet'te video control butonunu sağ alt köşeye al */
+  .gridItem[data-grid="philosophy"] .gridHeader {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    width: 100%; /* Mobile'da full width */
+    height: auto;
+    min-height: 650px; /* 30% artırıldı (500px → 650px) */
+    margin-left: 0;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr; /* Tek column */
+    grid-template-rows: repeat(2, 1fr); /* 2 satır */
+  }
+
+  .gridItem[data-grid="philosophy"],
+  .gridItem[data-grid="empty"] {
+    display: none; /* 1. ve 4. grid gizle */
+  }
+
+  .gridItem {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 325px; /* 30% artırıldı (250px → 325px) */
+    padding: 32px 20px;
+  }
+
+  .gridItem:last-child {
+    border-bottom: none;
+  }
+
+  .gridTitle {
+    font-size: 28px;
+  }
+
+  .gridIcon {
+    font-size: 28px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .hero {
+    width: 100%; /* Mobile small'da full width */
+    min-height: 520px; /* 30% artırıldı (400px → 520px) */
+  }
+
+  .gridItem {
+    padding: 24px 16px;
+    min-height: 260px; /* 30% artırıldı (200px → 260px) */
+  }
+
+  .gridTitle {
+    font-size: 24px;
+  }
+
+  .videoControl {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* Mobile small'da video control butonunu merkeze al */
+  .gridItem[data-grid="philosophy"] .gridHeader {
+    justify-content: center;
+    align-items: center;
+  }
+}

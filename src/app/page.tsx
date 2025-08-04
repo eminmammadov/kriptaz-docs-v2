@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next'
+import Hero from '@/components/Hero'
 
 export const metadata: Metadata = {
   title: 'Kriptaz Blockchain Sənədləri',
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
+      {/* Hero Section */}
+      <Hero />
+
       <main id="main-content" role="main" aria-label="Əsas məzmun">
         <h1>Kriptaz Blockchain Sənədləri</h1>
       </main>

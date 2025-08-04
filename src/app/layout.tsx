@@ -132,7 +132,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        data-new-gr-c-s-check-loaded="14.1246.0"
+        data-new-gr-c-s-check-loaded="14.1247.0"
         data-gr-ext-installed=""
       >
         <SkipLink />
