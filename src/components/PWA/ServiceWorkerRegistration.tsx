@@ -4,30 +4,9 @@ import { useEffect } from 'react'
 
 const ServiceWorkerRegistration: React.FC = () => {
   useEffect(() => {
-    // Development modunda Service Worker'ı devre dışı bırak ve mevcut SW'yi unregister et
+    // Development modunda Service Worker'ı devre dışı bırak
     if (process.env.NODE_ENV === 'development') {
       console.log('Service Worker: Disabled in development mode')
-
-      // Mevcut Service Worker'ı unregister et
-      if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then((registrations) => {
-          registrations.forEach((registration) => {
-            console.log('Service Worker: Unregistering', registration)
-            registration.unregister()
-          })
-        })
-
-        // Cache'leri temizle
-        if ('caches' in window) {
-          caches.keys().then((cacheNames) => {
-            cacheNames.forEach((cacheName) => {
-              console.log('Service Worker: Deleting cache', cacheName)
-              caches.delete(cacheName)
-            })
-          })
-        }
-      }
-
       return
     }
 
@@ -58,11 +37,20 @@ const ServiceWorkerRegistration: React.FC = () => {
           // Listen for messages from service worker
           navigator.serviceWorker.addEventListener('message', (event) => {
             console.log('Service Worker: Message received', event.data)
-            
-            if (event.data.type === 'CACHE_UPDATED') {
+
+            if (event.data.type === 'CACHE_UPDATED' || event.data.type === 'SW_UPDATED') {
               showUpdateNotification()
             }
           })
+
+          // Periyodik güncelleme kontrolü
+          setInterval(() => {
+            if (navigator.serviceWorker.controller) {
+              navigator.serviceWorker.controller.postMessage({
+                type: 'CHECK_FOR_UPDATES'
+              })
+            }
+          }, 30000) // Her 30 saniyede bir kontrol et
 
         } catch (error) {
           console.error('Service Worker: Registration failed', error)

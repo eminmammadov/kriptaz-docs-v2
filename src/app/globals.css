@@ -142,7 +142,8 @@
   --font-fallback: Arial, Helvetica, sans-serif;
 }
 
-@theme inline {
+/* Tailwind CSS v4 theme configuration */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

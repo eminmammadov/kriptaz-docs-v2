@@ -1,7 +1,8 @@
 // Service Worker for Kriptaz Docs PWA
-const CACHE_NAME = 'kriptaz-docs-v1';
-const STATIC_CACHE_NAME = 'kriptaz-docs-static-v1';
-const DYNAMIC_CACHE_NAME = 'kriptaz-docs-dynamic-v1';
+const CACHE_VERSION = Date.now(); // Dinamik versiyonlama
+const CACHE_NAME = `kriptaz-docs-v${CACHE_VERSION}`;
+const STATIC_CACHE_NAME = `kriptaz-docs-static-v${CACHE_VERSION}`;
+const DYNAMIC_CACHE_NAME = `kriptaz-docs-dynamic-v${CACHE_VERSION}`;
 
 // Files to cache immediately
 const STATIC_FILES = [
@@ -17,7 +18,7 @@ const STATIC_FILES = [
 // Install event - cache static files
 self.addEventListener('install', (event) => {
   console.log('Service Worker: Installing...');
-  
+
   event.waitUntil(
     caches.open(STATIC_CACHE_NAME)
       .then((cache) => {
@@ -26,6 +27,7 @@ self.addEventListener('install', (event) => {
       })
       .then(() => {
         console.log('Service Worker: Static files cached');
+        // Hemen aktif ol, beklemeden
         return self.skipWaiting();
       })
       .catch((error) => {
@@ -37,12 +39,13 @@ self.addEventListener('install', (event) => {
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   console.log('Service Worker: Activating...');
-  
+
   event.waitUntil(
     caches.keys()
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
+            // Mevcut versiyondan farklı tüm cache'leri sil
             if (cacheName !== STATIC_CACHE_NAME && cacheName !== DYNAMIC_CACHE_NAME) {
               console.log('Service Worker: Deleting old cache', cacheName);
               return caches.delete(cacheName);
@@ -52,7 +55,19 @@ self.addEventListener('activate', (event) => {
       })
       .then(() => {
         console.log('Service Worker: Activated');
+        // Tüm client'ları hemen kontrol et
         return self.clients.claim();
+      })
+      .then(() => {
+        // Tüm client'lara yenileme mesajı gönder
+        return self.clients.matchAll().then((clients) => {
+          clients.forEach((client) => {
+            client.postMessage({
+              type: 'SW_UPDATED',
+              message: 'Service Worker updated, please refresh'
+            });
+          });
+        });
       })
   );
 });
@@ -95,42 +110,37 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Handle static files and pages
+  // Handle static files and pages - Network First Strategy
   event.respondWith(
-    caches.match(request)
-      .then((cachedResponse) => {
-        if (cachedResponse) {
-          console.log('Service Worker: Serving from cache', request.url);
-          return cachedResponse;
+    fetch(request)
+      .then((response) => {
+        // Network başarılı, cache'e kaydet ve döndür
+        if (response && response.status === 200 && response.type === 'basic') {
+          const responseToCache = response.clone();
+          caches.open(DYNAMIC_CACHE_NAME)
+            .then((cache) => {
+              console.log('Service Worker: Caching new resource', request.url);
+              cache.put(request, responseToCache);
+            });
         }
-
-        // Not in cache, fetch from network
-        return fetch(request)
-          .then((response) => {
-            // Don't cache non-successful responses
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
+        return response;
+      })
+      .catch(() => {
+        // Network başarısız, cache'den dön
+        console.log('Service Worker: Network failed, trying cache for', request.url);
+        return caches.match(request)
+          .then((cachedResponse) => {
+            if (cachedResponse) {
+              console.log('Service Worker: Serving from cache', request.url);
+              return cachedResponse;
             }
 
-            // Cache the response
-            const responseToCache = response.clone();
-            caches.open(DYNAMIC_CACHE_NAME)
-              .then((cache) => {
-                console.log('Service Worker: Caching new resource', request.url);
-                cache.put(request, responseToCache);
-              });
-
-            return response;
-          })
-          .catch((error) => {
-            console.error('Service Worker: Fetch failed', error);
-            
-            // Return offline page for navigation requests
+            // Cache'de de yok, offline page döndür
             if (request.destination === 'document') {
               return caches.match('/offline.html');
             }
-            
-            throw error;
+
+            throw new Error('No cache available');
           });
       })
   );

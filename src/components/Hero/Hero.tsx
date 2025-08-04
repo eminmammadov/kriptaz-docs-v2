@@ -8,15 +8,9 @@ import styles from './Hero.module.css';
 const HERO_CONTENT = {
   video: {
     src: '/videos/hero.mp4',
-    poster: '/images/og-image.png'
+    poster: '/images/hero-poster.png'
   },
   grids: {
-    philosophy: {
-      title: 'Philosophy',
-      subtitle: 'Fəlsəfə',
-      description: 'Watson ilə, mən telefon qüllələrini zərər üçün yoxlaya bilərəm texnik işçi heç vaxt yerdən ayrılmadan.',
-      author: 'Jeremy - Maintenance Engineer'
-    },
     gallery: {
       title: 'Gallery',
       subtitle: 'Qalereya',

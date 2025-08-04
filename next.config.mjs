@@ -5,29 +5,6 @@ const nextConfig = {
     optimizePackageImports: ['react-icons'],
   },
 
-  // Development modunda cache'i devre dışı bırak
-  ...(process.env.NODE_ENV === 'development' && {
-    headers: async () => [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-          {
-            key: 'Pragma',
-            value: 'no-cache',
-          },
-          {
-            key: 'Expires',
-            value: '0',
-          },
-        ],
-      },
-    ],
-  }),
-
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
