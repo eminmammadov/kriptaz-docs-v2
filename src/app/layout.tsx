@@ -6,6 +6,7 @@ import { StructuredData } from "@/components/SEO";
 import { WebVitals } from "@/components/Performance";
 import { SkipLink } from "@/components/Accessibility";
 import { PWAInstaller, ServiceWorkerRegistration } from "@/components/PWA";
+import { CacheCleaner } from "@/components/DevTools";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -137,6 +138,7 @@ export default function RootLayout({
       >
         <SkipLink />
         <WebVitals />
+        <CacheCleaner />
         <ServiceWorkerRegistration />
         <ClientLayout>
           {children}

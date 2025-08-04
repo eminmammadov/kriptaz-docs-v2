@@ -4,6 +4,33 @@ import { useEffect } from 'react'
 
 const ServiceWorkerRegistration: React.FC = () => {
   useEffect(() => {
+    // Development modunda Service Worker'ı devre dışı bırak ve mevcut SW'yi unregister et
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Service Worker: Disabled in development mode')
+
+      // Mevcut Service Worker'ı unregister et
+      if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          registrations.forEach((registration) => {
+            console.log('Service Worker: Unregistering', registration)
+            registration.unregister()
+          })
+        })
+
+        // Cache'leri temizle
+        if ('caches' in window) {
+          caches.keys().then((cacheNames) => {
+            cacheNames.forEach((cacheName) => {
+              console.log('Service Worker: Deleting cache', cacheName)
+              caches.delete(cacheName)
+            })
+          })
+        }
+      }
+
+      return
+    }
+
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
       const registerServiceWorker = async () => {
         try {
