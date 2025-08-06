@@ -193,13 +193,29 @@ self.addEventListener('push', (event) => {
 // Notification click handler
 self.addEventListener('notificationclick', (event) => {
   console.log('Service Worker: Notification clicked');
-  
+
   event.notification.close();
 
   if (event.action === 'explore') {
     event.waitUntil(
       clients.openWindow('/')
     );
+  }
+});
+
+// Message handler for update notifications
+self.addEventListener('message', (event) => {
+  console.log('Service Worker: Message received', event.data);
+
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    console.log('Service Worker: Skipping waiting...');
+    self.skipWaiting();
+  }
+
+  if (event.data && event.data.type === 'CHECK_FOR_UPDATES') {
+    console.log('Service Worker: Checking for updates...');
+    // Force update check
+    self.registration.update();
   }
 });
 

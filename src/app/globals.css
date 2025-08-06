@@ -229,6 +229,7 @@ body {
   flex: 1;
   transition: margin-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   min-height: calc(100vh - 47px);
+  padding-top: 0; /* PWA notification için dinamik olarak ayarlanacak */
 }
 
 /* Mobile-first responsive design */
