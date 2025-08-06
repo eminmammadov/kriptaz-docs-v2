@@ -92,7 +92,7 @@ const PWAInstaller: React.FC = () => {
       position: 'fixed',
       bottom: '20px',
       right: '20px',
-      backgroundColor: '#012ACC',
+      backgroundColor: '#1C180D',
       color: 'white',
       padding: '12px 20px',
       borderRadius: '8px',
