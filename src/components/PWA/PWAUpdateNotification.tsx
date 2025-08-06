@@ -8,6 +8,13 @@ const PWAUpdateNotification: React.FC = () => {
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null)
 
   useEffect(() => {
+    // Development modunda test için notification'ı göster
+    if (process.env.NODE_ENV === 'development') {
+      console.log('PWA Update: Development mode - showing test notification')
+      setShowUpdateNotification(true)
+      return
+    }
+
     if ('serviceWorker' in navigator) {
       // Service Worker registration'ını kontrol et
       navigator.serviceWorker.getRegistration().then((registration) => {
@@ -42,7 +49,25 @@ const PWAUpdateNotification: React.FC = () => {
     }
   }, [])
 
+  // Header pozisyonunu dinamik olarak ayarla
+  useEffect(() => {
+    const header = document.querySelector('.header') as HTMLElement
+    if (header) {
+      if (showUpdateNotification) {
+        header.style.top = '40px' // Notification var
+      } else {
+        header.style.top = '0px' // Notification yok
+      }
+    }
+  }, [showUpdateNotification])
+
   const handleUpdateClick = () => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('PWA Update: Development mode - simulating update')
+      window.location.reload()
+      return
+    }
+
     if (waitingWorker) {
       // Waiting service worker'a skip waiting mesajı gönder
       waitingWorker.postMessage({ type: 'SKIP_WAITING' })
@@ -61,20 +86,21 @@ const PWAUpdateNotification: React.FC = () => {
   return (
     <div style={{
       position: 'fixed',
-      top: '47px', // Header'ın hemen altında
+      top: '0', // Header'ın tam üzerinde
       left: '0',
       right: '0',
       backgroundColor: '#1C180D',
       color: 'white',
-      padding: '12px 20px',
-      zIndex: 1002, // Header'dan yüksek
+      padding: '8px 16px', // Daha kompakt
+      zIndex: 1003, // Header'dan çok yüksek
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      fontSize: '14px',
+      fontSize: '13px', // Daha küçük
       fontFamily: 'var(--font-kriptaz)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+      minHeight: '40px' // Minimum yükseklik
     }}>
       <div style={{
         display: 'flex',

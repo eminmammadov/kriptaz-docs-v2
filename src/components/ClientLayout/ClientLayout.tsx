@@ -12,8 +12,8 @@ interface ClientLayoutProps {
 const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
   return (
     <div className="app-container">
-      <Header />
       <PWAUpdateNotification />
+      <Header />
       <main className="main-content">
         {children}
       </main>
