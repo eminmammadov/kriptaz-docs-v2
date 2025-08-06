@@ -130,6 +130,13 @@
   }
 }
 
+@media (max-width: 450px) {
+  .searchOverlay.open {
+    max-width: calc(100vw - 110px);
+    right: 12px;
+  }
+}
+
 @media (max-width: 540px) {
   .searchOverlay {
     right: 12px;
