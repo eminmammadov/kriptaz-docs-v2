@@ -135,8 +135,9 @@
   .searchOverlay {
     right: 55px !important;
     left: 48px !important;
-    width: calc(100vw - 103px) !important;
+    width: 0 !important;
     transition: none !important;
+    pointer-events: none !important;
   }
 
   .searchOverlay.open {
@@ -147,6 +148,7 @@
     left: 48px !important;
     transition: none !important;
     animation: none !important;
+    pointer-events: auto !important;
   }
 
   .searchContainer {
@@ -154,6 +156,10 @@
     max-width: 100% !important;
     min-width: auto !important;
     transition: none !important;
+    opacity: 0 !important;
+  }
+
+  .searchOverlay.open .searchContainer {
     opacity: 1 !important;
   }
 
@@ -162,6 +168,14 @@
     max-width: 100% !important;
     min-width: auto !important;
     transition: none !important;
+  }
+
+  .closeButton {
+    position: absolute !important;
+    right: 8px !important;
+    z-index: 1002 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
 
   /* Tüm animasyonları kapat */
