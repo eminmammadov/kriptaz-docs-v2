@@ -165,8 +165,8 @@ body {
 
 /* Accessibility & Keyboard Navigation */
 *:focus {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
+  outline: 1px solid var(--blue);
+  outline-offset: 1px;
 }
 
 *:focus:not(:focus-visible) {
@@ -174,8 +174,8 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
+  outline: 1px solid var(--blue);
+  outline-offset: 1px;
 }
 
 /* Skip to main content link */

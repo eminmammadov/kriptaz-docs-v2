@@ -43,6 +43,22 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
+  // Scroll'u kontrol et
+  useEffect(() => {
+    if (isOpen) {
+      // Search açıkken scroll'u devre dışı bırak
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Search kapandığında scroll'u geri aç
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   // Escape düyməsi ilə bağlamaq üçün
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
