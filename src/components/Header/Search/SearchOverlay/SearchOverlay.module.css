@@ -134,21 +134,24 @@
 @media (max-width: 457px) and (min-width: 351px) {
   .searchOverlay {
     right: 55px !important;
-    left: 48px !important;
+    left: 48px !important; /* Hamburger menu'ya yer bırak */
     width: 0 !important;
     transition: none !important;
     pointer-events: none !important;
+    z-index: 1001 !important; /* Hamburger menu'dan düşük */
+    visibility: hidden !important; /* Tamamen gizle */
   }
 
   .searchOverlay.open {
-    width: calc(100vw - 103px) !important;
-    max-width: calc(100vw - 103px) !important;
+    width: calc(100vw - 111px) !important; /* Sol mesafeyi artır */
+    max-width: calc(100vw - 111px) !important;
     min-width: 200px !important;
     right: 55px !important;
-    left: 48px !important;
+    left: 48px !important; /* Hamburger menu'ya yer bırak */
     transition: none !important;
     animation: none !important;
     pointer-events: auto !important;
+    visibility: visible !important; /* Açıkken görünür */
   }
 
   .searchContainer {
