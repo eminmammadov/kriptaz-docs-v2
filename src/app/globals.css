@@ -161,6 +161,24 @@ body {
   background: var(--light);
   color: var(--foreground);
   font-family: var(--font-kriptaz);
+  /* Scrollbar'ı gizle */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* WebKit tabanlı tarayıcılar için scrollbar gizle */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tüm elementler için scrollbar gizle */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
 /* Accessibility & Keyboard Navigation */
