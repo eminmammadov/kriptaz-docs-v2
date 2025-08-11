@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://docs.kriptaz.com'),
   title: {
     default: "Kriptaz Blockchain Sənədləri",
     template: "%s | Kriptaz Blockchain"
@@ -132,7 +133,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        data-new-gr-c-s-check-loaded="14.1247.0"
+        data-new-gr-c-s-check-loaded="14.1248.0"
         data-gr-ext-installed=""
       >
         <SkipLink />
