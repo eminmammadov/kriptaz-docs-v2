@@ -36,7 +36,7 @@
 
 /* Navigation */
 .navigation {
-  padding: 16px 0;
+  padding: 8px 0;
   width: 100%;
 }
 
@@ -49,21 +49,21 @@
 .separator {
   height: 1px;
   background-color: rgba(255, 255, 255, 0.1);
-  margin: 16px 0 8px 0;
+  margin: 8px 0 4px 0;
 }
 
 .menuItemContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 16px;
+  padding: 4px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   border: none;
   background: none;
   width: 100%;
   text-align: left;
-  min-height: 36px;
+  min-height: 30px;
   position: relative;
 }
 
@@ -82,7 +82,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: default;
-  padding: 12px 16px 8px 16px;
+  padding: 8px 16px 4px 16px;
 }
 
 .menuItemContent.categoryTitle:hover {
@@ -172,8 +172,8 @@
   }
 
   .navigation {
-    padding: 16px 0;
-    min-height: calc(100vh - 47px - 32px);
+    padding: 8px 0;
+    min-height: calc(100vh - 47px - 16px);
     display: flex;
     flex-direction: column;
   }
@@ -190,8 +190,8 @@
   }
 
   .navigation {
-    padding: 16px 0 80px 0;
-    min-height: calc(100vh - 47px - 96px);
+    padding: 8px 0 80px 0;
+    min-height: calc(100vh - 47px - 88px);
   }
 }
 
@@ -202,7 +202,7 @@
   }
 
   .navigation {
-    padding: 16px 0 100px 0;
-    min-height: calc(100vh - 47px - 116px);
+    padding: 8px 0 100px 0;
+    min-height: calc(100vh - 47px - 108px);
   }
 }
