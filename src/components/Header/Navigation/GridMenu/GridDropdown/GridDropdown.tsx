@@ -28,6 +28,8 @@ const GridDropdown: React.FC<GridDropdownProps> = ({ isOpen, onClose }) => {
               href={item.href || '#'}
               className={styles.menuLink}
               onClick={isCategoryTitle ? undefined : onClose}
+              target={item.openInNewTab ? '_blank' : undefined}
+              rel={item.openInNewTab ? 'noopener noreferrer' : undefined}
             >
               {item.title}
             </Link>

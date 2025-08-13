@@ -4,6 +4,7 @@ export interface GridMenuItem {
   href?: string;
   hasExternalIcon?: boolean;
   hasSeparator?: boolean;
+  openInNewTab?: boolean;
 }
 
 export const gridMenuData: GridMenuItem[] = [
@@ -18,11 +19,13 @@ export const gridMenuData: GridMenuItem[] = [
     title: 'IBM Brand Center',
     href: '/brand-center',
     hasExternalIcon: true,
+    openInNewTab: true,
   },
   {
     id: 'ibm-design-language',
     title: 'IBM Design Language',
     href: '/design-language',
+    openInNewTab: false,
   },
 
   // Implementation
@@ -36,12 +39,14 @@ export const gridMenuData: GridMenuItem[] = [
     id: 'carbon-design-system',
     title: 'Carbon Design System',
     href: '/carbon',
+    openInNewTab: false,
   },
   {
     id: 'carbon-for-ibm-products',
     title: 'Carbon for IBM Products',
     href: '/carbon-products',
     hasExternalIcon: true,
+    openInNewTab: true,
   },
   {
     id: 'carbon-for-ibm-com',
@@ -91,19 +96,78 @@ export const gridMenuData: GridMenuItem[] = [
     title: 'IBM Experience Standards',
     href: '/experience-standards',
     hasExternalIcon: true,
+    openInNewTab: true,
   },
 
   // Community
   {
-    id: 'community-title',
-    title: 'Community',
+    id: 'icmamiz-title',
+    title: 'İcmamız',
     href: '#',
     hasSeparator: true,
   },
   {
-    id: 'ibm-design',
-    title: 'IBM Design',
-    href: '/design',
+    id: 'x',
+    title: 'X',
+    href: 'https://x.com/kriptazChain',
     hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'x2',
+    title: 'X (InvestFounders)',
+    href: 'https://x.com/InvestFounders',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'facebook-group',
+    title: 'Facebook qrupu',
+    href: 'https://www.facebook.com/groups/kriptoazerbaijan',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'facebook-page',
+    title: 'Facebook səhifəsi',
+    href: 'https://www.facebook.com/kriptazChain',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'youtube',
+    title: 'Youtube',
+    href: 'https://www.youtube.com/@kriptazChain',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'linkedin',
+    title: 'Linkedin',
+    href: 'https://www.linkedin.com/company/kriptazblockchain',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'instagram',
+    title: 'Instagram',
+    href: 'https://instagram.com/kriptaz',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'telegram-channel',
+    title: 'Telegram kanalı',
+    href: 'https://t.me/kriptoazerbaycancommunity',
+    hasExternalIcon: true,
+    openInNewTab: true,
+  },
+  {
+    id: 'telegram-qrupu',
+    title: 'Telegram qrupu',
+    href: 'https://t.me/kriptoazerbaycancommunitynew',
+    hasExternalIcon: true,
+    openInNewTab: true,
   }
+
 ];

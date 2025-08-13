@@ -204,7 +204,7 @@ export const menuData: MenuItem[] = [
 
   {
     id: 'kriptaz-invest-founders',
-    title: 'Kriptaz Invest Founders',
+    title: 'Invest Founders Fund',
     isExpandable: true,
     isExpanded: false,
     hasSeparator: true,
@@ -227,6 +227,11 @@ export const menuData: MenuItem[] = [
         id: 'kaiem',
         title: 'KAİEM-Kripto Aktivlərin İdarə Edilməsi',
         href: '/kriptaz-qanunlar/kaiem'
+      },
+      {
+        id: 'vergi-aktlari',
+        title: 'Vergi aktları',
+        href: '/kriptaz-qanunlar/vergi-aktlari'
       },
       {
         id: 'xususi-tenzimlemeler',
