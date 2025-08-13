@@ -2,7 +2,7 @@
 .hero {
   position: relative;
   width: calc(100% - 256px); /* Aside menu genişliği çıkarıldı */
-  height: 480px; /* 20% artırıldı (400px → 480px) */
+  height: 550px !important; /* 20% artırıldı (400px → 480px) */
   overflow: hidden;
   background: var(--dark);
   margin-left: 256px; /* Aside menu genişliği kadar margin */
@@ -203,7 +203,7 @@
 @media (max-width: 1054px) {
   .hero {
     width: 100%; /* Tablet'te full width */
-    height: 480px; /* Desktop ile aynı yükseklik (20% artırılmış) */
+    height: 480px !important; /* Desktop ile aynı yükseklik (20% artırılmış) */
     margin-left: 0; /* Tablet'te aside menu gizli */
   }
 

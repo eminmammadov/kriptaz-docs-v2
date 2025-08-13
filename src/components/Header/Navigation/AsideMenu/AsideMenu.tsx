@@ -83,6 +83,8 @@ const AsideMenu: React.FC<AsideMenuProps> = ({
                 href={item.href}
                 className={styles.menuLink}
                 onClick={isMobile ? onClose : undefined}
+                target={item.openInNewTab ? '_blank' : undefined}
+                rel={item.openInNewTab ? 'noopener noreferrer' : undefined}
               >
                 {item.title}
               </Link>

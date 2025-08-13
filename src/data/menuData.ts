@@ -6,6 +6,7 @@ export interface MenuItem {
   isExpandable?: boolean;
   isExpanded?: boolean;
   hasSeparator?: boolean;
+  openInNewTab?: boolean;
 }
 
 export const menuData: MenuItem[] = [
@@ -206,8 +207,10 @@ export const menuData: MenuItem[] = [
   {
     id: 'kriptaz-invest',
     title: 'Kriptaz Invest',
+    href: '/kriptaz-invest',
     isExpandable: true,
     isExpanded: false,
+    openInNewTab: false,
     children: [
       {
         id: 'giris',
@@ -228,12 +231,14 @@ export const menuData: MenuItem[] = [
     ]
   },
 
-  // Invest Founders Fund
+  // Kriptaz Eco
   {
     id: 'kriptaz-eco',
     title: 'Kriptaz Eco',
+    href: '/kriptaz-eco',
     isExpandable: true,
     isExpanded: false,
+    openInNewTab: false,
     children: []
   },
 
@@ -241,9 +246,11 @@ export const menuData: MenuItem[] = [
   {
     id: 'kriptaz-invest-founders',
     title: 'Invest Founders Fund',
+    href: '/invest-founders-fund',
     isExpandable: true,
     isExpanded: false,
     hasSeparator: true,
+    openInNewTab: false,
     children: []
   },
 
@@ -296,7 +303,14 @@ export const menuData: MenuItem[] = [
       {
         id: 'suallar-cavablar',
         title: 'Suallar və cavablar',
-        href: '/komek/suallar-cavablar'
+        href: '/komek/suallar-cavablar',
+        openInNewTab: false
+      },
+      {
+        id: 'external-support',
+        title: 'External Dəstək',
+        href: 'https://support.kriptaz.com',
+        openInNewTab: true
       },
     ]
   },
