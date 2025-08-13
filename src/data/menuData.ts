@@ -202,6 +202,42 @@ export const menuData: MenuItem[] = [
     ]
   },
 
+  // Kriptaz Invest
+  {
+    id: 'kriptaz-invest',
+    title: 'Kriptaz Invest',
+    isExpandable: true,
+    isExpanded: false,
+    children: [
+      {
+        id: 'giris',
+        title: 'Giriş',
+        href: '/kriptaz-invest/giriş'
+      },
+      {
+        id: 'staking',
+        title: 'Staking',
+        href: '/kriptaz-invest/staking'
+      },
+      {
+        id: 'ddgo',
+        title: 'DDGO',
+        href: '/kriptaz-invest/ddgo'
+      },
+      
+    ]
+  },
+
+  // Invest Founders Fund
+  {
+    id: 'kriptaz-eco',
+    title: 'Kriptaz Eco',
+    isExpandable: true,
+    isExpanded: false,
+    children: []
+  },
+
+  // Invest Founders Fund
   {
     id: 'kriptaz-invest-founders',
     title: 'Invest Founders Fund',
