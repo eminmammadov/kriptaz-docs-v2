@@ -48,13 +48,13 @@ export const menuData: MenuItem[] = [
   {
     id: 'token-ekonomiyasi',
     title: 'Token ekonomiyası',
-    href: '/komek/token-ekonomiyasi',
+    href: '/token-ekonomiyasi',
     hasSeparator: true
   },
   {
     id: 'yol-xeritemiz',
     title: 'Yol xəritəmiz',
-    href: '/komek/yol-xeritemiz',
+    href: '/yol-xeritemiz',
   },  
 
   

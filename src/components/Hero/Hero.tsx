@@ -12,14 +12,14 @@ const HERO_CONTENT = {
   },
   grids: {
     gallery: {
-      title: 'Gallery',
-      subtitle: 'Qalereya',
-      href: '/gallery'
+      title: 'Xidmətlərimiz',
+      subtitle: 'Xidmətlərimiz',
+      href: '/giris/xidmetlerimiz'
     },
     resources: {
-      title: 'Resources',
-      subtitle: 'Resurslar',
-      href: '/resources'
+      title: 'Yol xəritəmiz',
+      subtitle: 'Yol xəritəmiz',
+      href: '/yol-xeritemiz'
     }
   }
 } as const;
