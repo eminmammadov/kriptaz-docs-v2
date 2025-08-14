@@ -10,6 +10,7 @@ export interface MenuItem {
 }
 
 export const menuData: MenuItem[] = [
+  // Giriş
   {
     id: 'giris',
     title: 'Giriş',
@@ -46,6 +47,7 @@ export const menuData: MenuItem[] = [
     ]
   },
 
+  // Token Ekonomiyası - Yol xəritəmiz
   {
     id: 'token-ekonomiyasi',
     title: 'Token ekonomiyası',
@@ -58,7 +60,7 @@ export const menuData: MenuItem[] = [
     href: '/yol-xeritemiz',
   },  
 
-  
+  // Kriptaz Media
   {
     id: 'k-media',
     title: 'Kriptaz Media',
@@ -89,6 +91,7 @@ export const menuData: MenuItem[] = [
     ]
   },
   
+  // KriptazX
   {
     id: 'kriptaz-x',
     title: 'KriptazX',
@@ -123,6 +126,7 @@ export const menuData: MenuItem[] = [
     ]
   },
 
+  // Kriptaz Pay
   {
     id: 'kriptaz-pay',
     title: 'Kriptaz Pay',
@@ -141,7 +145,7 @@ export const menuData: MenuItem[] = [
       },
       {
         id: 'texnologiya',
-        title: 'Texnologiya',
+        title: 'Texnoloji İnfrastruktur',
         href: '/kriptaz-pay/texnologiya'
       },
       {
@@ -153,6 +157,11 @@ export const menuData: MenuItem[] = [
         id: 'on-off-chain',
         title: 'On/Off-Chain',
         href: '/kriptaz-pay/on-off-chain'
+      },
+      {
+        id: 'fee',
+        title: 'Fee',
+        href: '/kriptaz-pay/fee'
       },
       {
         id: 'p2p',
@@ -178,6 +187,7 @@ export const menuData: MenuItem[] = [
     ]
   },
   
+  // Kriptaz Edu
   {
     id: 'kriptaz-edu',
     title: 'Kriptaz Edu',
@@ -254,6 +264,7 @@ export const menuData: MenuItem[] = [
     children: []
   },
 
+  // Kriptaz Qanunları
   {
     id: 'kriptaz-qanunlar',
     title: 'Kriptaz qanunları',
@@ -289,6 +300,7 @@ export const menuData: MenuItem[] = [
     ]
   },
 
+  // Kömək
   {
     id: 'komek',
     title: 'Kömək',
@@ -315,6 +327,7 @@ export const menuData: MenuItem[] = [
     ]
   },
 
+  // Rəqəmsal qanunlar
   {
     id: 'reqemsal-qanunlar',
     title: 'Rəqəmsal qanunlar',
